@@ -4,7 +4,7 @@
 void main()
 {
     int articulo,cantidad,error=0,maxcantidad=0,maxorden=0,maxarticulo=0,mincantidad=0,minorden=0,minarticulo=0;
-    float precio,promediocant=0,maximpt=0,promedioimporte=0,importe,maxprecio=0,minprecio,test=0,contador_articulo=0,minimpt=0,totalcantidad=0,acumuladorIMPT=0;
+    float precio,promediocant=0,maximpt=0,promedioimporte=0,importe,maxprecio=0,minprecio,contador_articulo=0,minimpt=0,totalcantidad=0,acumuladorIMPT=0;
 
     printf("\nIngrese el codigo del producto: ");
     scanf("%i",&articulo);
