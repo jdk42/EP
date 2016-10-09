@@ -7,7 +7,7 @@
 int validar(int,int);
 int main()
 {
-    int dia,aux,horasmayor=0,sen=0,horas,sueldos[LEGAJOS],legajo,empleados[LEGAJOS][DIAS],i=0,j=0,acumuladorHoras=0,acumulador[DIAS],horastotales=0,horastotalesXempleado[LEGAJOS];
+    int dia,aux2=0,alegajos[LEGAJOS],aux,horasmayor=0,sen=0,horas,sueldos[LEGAJOS],legajo,empleados[LEGAJOS][DIAS],i=0,j=0,acumuladorHoras=0,acumulador[DIAS],horastotales=0,horastotalesXempleado[LEGAJOS];
 
     for (i=0;i<LEGAJOS;i++)
     {
@@ -30,6 +30,7 @@ int main()
            for (i=0;i<LEGAJOS;i++)
         {
                    sueldos[i] = 0;
+                   alegajos[i] = i;
         }
 
     printf("\nInserte numero de legajo: ");
@@ -96,7 +97,9 @@ int main()
                 aux=sueldos[j];
                 sueldos[j]=sueldos[j+1];
                 sueldos[j+1]=aux;
-
+                aux = alegajos[j];
+                alegajos[j]=alegajos[j+1];
+                alegajos[j+1]=aux;
             }
         }
     }
@@ -105,7 +108,7 @@ int main()
 
     for (i=0;i<LEGAJOS;i++)
     {
-        printf("\n%d \t %d",i+1,sueldos[i]);
+        printf("\n%d \t %d",alegajos[i]+1,sueldos[i]);
     }
 
     for(i=0;i<LEGAJOS;i++)
