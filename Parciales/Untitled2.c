@@ -48,7 +48,6 @@ int main()
         importe = (precios[fumigacion-1] * metros)/2;
         }
 
-        matriz[granjero-1][mes-1] += importe;
 
         if (fumigacion == 3) // Punto d
         {
