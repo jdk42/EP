@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <conio.h>
-#define GRANJEROS 5
+#define GRANJEROS 50
 
 int valida(int,int);
 void fechahoy();
@@ -8,10 +8,10 @@ void langostas(int []);
 
 int main()
 {
-    float precios[4]={18,20,22,30},descuento,matriz[GRANJEROS][3]={{0}},importe,meses[GRANJEROS],maximporte,acumGusanos[12]={0},porcentaje,sumadorgranjeros[GRANJEROS]={0};
-    int granjero,fumigacion,metros,mes,tipofumigacion[4]={0},mespedido,sumador=0,i=0,j=0,sen=0,maxgranjero;
+    float precios[4]={18,20,22,30},metros=0,descuento=0,matriz[GRANJEROS][12]={{0}},importe=0,meses[GRANJEROS]={0},maximporte=0,acumGusanos[12]={0},porcentaje=0,sumadorgranjeros[GRANJEROS]={0};
+    int granjero=0,fumigacion=0,mes=0,tipofumigacion[4]={0},mespedido=0,sumador=0,i=0,j=0,sen=0,maxgranjero=0;
 
-    //fechahoy();
+    fechahoy();
 
     printf("\nIngrese numero de granjero: ");
     granjero = valida(0,50);
@@ -24,7 +24,7 @@ int main()
         printf("\nIngrese cantidad de metros cuadrados a fumigar: ");
         do
         {
-            scanf("%i",&metros);
+            scanf("%f",&metros);
         }
         while(metros<0);
 
@@ -38,14 +38,14 @@ int main()
 
         if (metros>10000)
         {
-            importe = (float)(precios[fumigacion] * metros);
+            importe = (precios[fumigacion-1] * metros)/2;
             descuento = 0.7*importe;
             importe = importe-descuento;
 
         }
         else
         {
-        importe = (float)(precios[fumigacion] * metros);
+        importe = (precios[fumigacion-1] * metros)/2;
         }
 
         matriz[granjero-1][mes-1] += importe;
@@ -83,7 +83,18 @@ int main()
     printf("\nMES  IMPORTE");
     for(i=0;i<12;i++)
     {
-        printf("\n%d  %.2f",i+1,acumGusanos[i]);
+        printf("\n%d  %.2f",i+1,acumGusanos[i]*2);
+    }
+
+    printf("\n");
+
+       for(i=0;i<GRANJEROS;i++)
+    {
+        for(j=0;j<12;j++)
+        {
+            printf("%.0f  ",matriz[i][j]);
+        }
+        printf("\n");
     }
 
     for(i=0;i<GRANJEROS;i++)
@@ -94,13 +105,21 @@ int main()
         }
     }
 
-    for (i=0;i<GRANJEROS;i++)
+   /* for(i=0;i<GRANJEROS;i++)
+    {
+
+           printf("\n%.2f",sumadorgranjeros[i]);
+        }*/
+
+
+
+ for (i=0;i<GRANJEROS;i++)
     {
             if ( sen == 0)
         {
             maxgranjero = i;
-            sen = 1;
             maximporte = sumadorgranjeros[i];
+            sen = 1;
         }
         else
         {
