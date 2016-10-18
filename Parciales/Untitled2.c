@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <conio.h>
-#define GRANJEROS 50
+#define GRANJEROS 5
 
 int valida(int,int);
 void fechahoy();
@@ -8,10 +8,10 @@ void langostas(int []);
 
 int main()
 {
-    float precios[4]={18,20,22,30},descuento,matriz[GRANJEROS][3]={{0}},importe,meses[GRANJEROS],maximporte,acumGusanos[12],porcentaje,sumadorgranjeros[GRANJEROS]={0};
+    float precios[4]={18,20,22,30},descuento,matriz[GRANJEROS][3]={{0}},importe,meses[GRANJEROS],maximporte,acumGusanos[12]={0},porcentaje,sumadorgranjeros[GRANJEROS]={0};
     int granjero,fumigacion,metros,mes,tipofumigacion[4]={0},mespedido,sumador=0,i=0,j=0,sen=0,maxgranjero;
 
-    fechahoy();
+    //fechahoy();
 
     printf("\nIngrese numero de granjero: ");
     granjero = valida(0,50);
@@ -24,7 +24,7 @@ int main()
         printf("\nIngrese cantidad de metros cuadrados a fumigar: ");
         do
         {
-            scanf("%i",metros);
+            scanf("%i",&metros);
         }
         while(metros<0);
 
@@ -47,6 +47,7 @@ int main()
         {
         importe = (float)(precios[fumigacion] * metros);
         }
+
         matriz[granjero-1][mes-1] += importe;
 
         if (fumigacion == 3) // Punto d
@@ -66,7 +67,7 @@ int main()
     printf("\nNUMERO GRANJERO\t\tIMPORTE");
     for(i=0;i<GRANJEROS;i++)
     {
-        printf("%d\t\t%.2f",i+1,matriz[i][mespedido-1]);
+        printf("\n%d\t\t%.2f",i+1,matriz[i][mespedido-1]);
     }
 
     printf("\nGranjeros que fumigaron mas de 3 meses: ");
@@ -82,7 +83,7 @@ int main()
     printf("\nMES  IMPORTE");
     for(i=0;i<12;i++)
     {
-        printf("%d  %.2f",i+1,acumGusanos[i]);
+        printf("\n%d  %.2f",i+1,acumGusanos[i]);
     }
 
     for(i=0;i<GRANJEROS;i++)
@@ -111,11 +112,9 @@ int main()
         }
     }
 
-    printf("Granjero que mas facturo: %d con un total de %.2f",maxgranjero,maximporte);
+    printf("\n");
 
-
-
-
+    printf("Granjero que mas facturo: %i con un total de %.2f",maxgranjero+1,maximporte);
 
     getch();
     return(0);
@@ -126,7 +125,7 @@ int valida(int li,int ls)
 
     do
     {
-        scanf("%i",dato);
+        scanf("%i",&dato);
     }
     while(dato<li||dato>ls);
 
