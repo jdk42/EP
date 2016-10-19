@@ -104,13 +104,6 @@ int main()
         }
     }
 
-   /* for(i=0;i<GRANJEROS;i++)
-    {
-
-           printf("\n%.2f",sumadorgranjeros[i]);
-        }*/
-
-
 
  for (i=0;i<GRANJEROS;i++)
     {
