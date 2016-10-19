@@ -38,14 +38,14 @@ int main()
 
         if (metros>10000)
         {
-            importe = (precios[fumigacion-1] * metros)/2;
+            importe = precios[fumigacion-1] * metros;
             descuento = 0.7*importe;
             importe = importe-descuento;
 
         }
         else
         {
-        importe = (precios[fumigacion-1] * metros)/2;
+        importe = precios[fumigacion-1] * metros;
         }
 
 
@@ -82,7 +82,7 @@ int main()
     printf("\nMES  IMPORTE");
     for(i=0;i<12;i++)
     {
-        printf("\n%d  %.2f",i+1,acumGusanos[i]*2);
+        printf("\n%d  %.2f",i+1,acumGusanos[i]);
     }
 
     printf("\n");
