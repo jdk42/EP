@@ -177,6 +177,9 @@ int main(){
 
     }
 
+fclose(archivo1);
+fclose(archivo2);
+fclose(archivo3);
 
 getch();
 return(0);
