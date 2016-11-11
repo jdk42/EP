@@ -84,7 +84,7 @@ int main(){
     {
         tlegajo = 0;
         legajo_a=archi1.legajo;
-        while(legajo_a=archi1.legajo)
+        while(legajo_a==archi1.legajo)
         {
                 tlegajo += archi1.horas;
                 sumadorgeneral += archi1.horas;
